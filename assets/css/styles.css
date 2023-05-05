@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+   --cor-fundo: #f1cbff;
+   --cor-secundaria: #cfb2d9;
+   --cor-detalhes: rgb(249, 232, 200);
+   --cor-texto: rgb(101, 101, 101);
+   --cor-texto-2: white;
+}
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+   color: var(--cor-texto);
+}
+
+.container {
+   background-color: var(--cor-fundo);
+   width: 85vw;
+   max-width: 500px;
+   height: auto;
+   margin: 4vh auto;
+   padding-bottom: 3vw;
+   border-radius: 1.5em;
+}
+
+.title {
+   font-weight: 700;
+   font-size: 1.8em;
+   padding: 1em;
+   text-align: center;
+}
+
+.task-form{
+   padding: 0 3vw;
+   display: flex;
+   flex-direction: column;
+   gap: 0.3em;
+}
+
+.task-form .add-input {
+   padding: 1em;
+   margin-bottom: 0.4em;
+   border: none;   
+   border-radius: 0.2em;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 300;
+   outline-color: var(--cor-secundaria);
+}
+
+.task-form button {
+   border: none;
+   text-decoration: none;
+   cursor: pointer;
+   border-radius: 1.5em;
+   padding: 0.7em;
+   margin-bottom: 2em;
+   background-color: var(--cor-secundaria);
+   color: var(--cor-texto-2);
+   font-family: 'Montserrat', sans-serif;
+}
+
+.task-form button:hover {
+   background-color: var(--cor-detalhes);
+   color: var(--cor-texto);
+   transition: 0.3s;
+}
+
+.tasks-list {
+   min-height: 100vh;
+   max-height: auto;
+   border-radius: 1.5em;
+   background-image: url("../images/folha-pautada.png");
+   background-repeat: round;
+   margin: 0.3em 3vw;
+   padding-bottom: 1em;
+   display: flex;
+   flex-direction: column;
+}
+
+.task-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   
+}
+
+.task-label {
+   position: relative;
+   padding: 0.4em 0.3em 0.4em 3.2em;
+   /* border: 1px solid black; */
+   margin: 0.3em;
+   font-weight: 500;
+}
+
+.task-input {
+   width: 0;
+   height: 0;
+   opacity: 0;
+}
+
+.checkmark {
+   position: absolute;
+   top: 0.2em;
+   left: 0.7em;
+   width: 20px;
+   height: 20px;
+   border: 2px solid var(--cor-secundaria);
+   border-radius: 0.4em;
+}
+
+.delete::after {
+   content: "\1F5D1"; /*🗑️*/
+   padding: 0.2em;
+   margin-right: 0.2em;
+}
+
+.delete-all {
+   border: none;
+   text-decoration: none;
+   cursor: pointer;
+   border-radius: 1.5em;
+   padding: 0.7em;
+   margin: 2em;
+   background-color: var(--cor-detalhes);
+   color: var(--cor-texto);
+   font-family: 'Montserrat', sans-serif;
+   width: 50%;
+   align-self: center;
+   display: block;
+}
+
+.task-label:hover .task-input ~ .checkmark {
+   background-color: var(--cor-secundaria);
+}
+
+.task-input:checked ~ .checkmark {
+   background-color: var(--cor-secundaria);
+}
+
+.task-label .checkmark::after {
+   content: "";
+   position: absolute;
+   display: none;
+   left: 5px;
+   width: 5px;
+   height: 12px;
+   border: solid var(--cor-detalhes);
+   border-width: 0 4px 4px 0;
+   transform: rotate(45deg);
+}
+
+.task-input:checked ~ .checkmark::after {
+   display: block;
+}
